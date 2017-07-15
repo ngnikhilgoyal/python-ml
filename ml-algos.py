@@ -14,6 +14,11 @@ iris = datasets.load_iris()
 
 iris = pd.DataFrame(iris.data, columns=iris.feature_names)
 
+target = datasets.load_iris()
+iris['target'] = target.target 
+
+del(target)
+
 print(type(iris))
 print (iris.head())
 
@@ -28,4 +33,8 @@ f, ax = plt.subplots(figsize=(10, 8))
 corr = iris.corr()
 
 sns.heatmap(corr, mask=np.zeros_like(corr, dtype=np.bool), cmap=sns.diverging_palette(220, 10, as_cmap=True), square=True, ax=ax)
+
+print(f)
+# 
+
 
